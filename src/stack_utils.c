@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:29:51 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/30 22:25:59 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/31 20:33:12 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	print_stacks(t_stack *a, t_stack *b)
 	i = max(ac, bc) - 1;
 	while (i >= 0)
 	{
+		ft_printf("\n");
 		if (get_i(a, i) != NULL)
 			ft_printf("%7d", get_i(a, i)->val);
 		else
@@ -65,10 +66,9 @@ void	print_stacks(t_stack *a, t_stack *b)
 			ft_printf("%7d", get_i(b, i)->val);
 		else
 			ft_printf("      _");
-		ft_printf("\n");
 		i--;
 	}
-	ft_printf("______a | ______b\n");
+	ft_printf("\n______a | ______b\n");
 }
 
 t_stack	*get_biggest(t_stack *stack)

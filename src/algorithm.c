@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 02:42:29 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 03:35:50 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/31 20:41:57 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	push_fst_to_move(t_stack **a, t_stack **b)
 	else if (!(fst->to_rev) && !(fst->targ->to_rev))
 		rotate_two(a, b);
 	final_rot(b, fst, false);
-	ft_printf("here nigga %d %d %d %p\n", fst->val, fst->top_price, fst->push_price, fst->targ);
 	final_rot(a, fst->targ, true);
 	pa(a, b, true);
 }
@@ -80,14 +79,10 @@ void	push_swap(t_stack **a, t_stack **b)
 	while (*b)
 	{
 		node_refresh(*a, *b);
-		ft_printf("ici\n");
 		push_fst_to_move(a, b);
-		ft_printf("la\n");
 		print_stacks(*a, *b);
 	}
 	if (is_sorted(*a))
 		return ;
-	ft_printf("coucou\n");
-	node_refresh(*a, *b);
 	final_rot(a, get_smallest(*a), true);
 }

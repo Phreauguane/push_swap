@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 01:26:38 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 03:42:40 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/31 20:44:03 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	calc_price(t_stack *s, char stack)
 	int	i;
 
 	len = get_stack_len(s);
-	i = len;
-	while (--i >= 0)
+	i = len - 1;
+	while (i >= 0)
 	{
 		s->pos = i;
 		s->top_price = min(i, len - i);
@@ -58,12 +58,6 @@ void	get_targets(t_stack *a, t_stack *b)
 	while (b)
 	{
 		b->targ = get_smallest_bigger(a, b->val);
-		ft_printf("Price of %d : %d\n", b->val, b->top_price);
-		ft_printf("Targ for %d : ", b->val);
-		if (b->targ)
-			ft_printf("%d !\n", b->targ->val);
-		else
-			ft_printf("\n");
 		b = b->next;
 	}
 	while (a)
@@ -75,9 +69,16 @@ void	get_targets(t_stack *a, t_stack *b)
 
 void	node_refresh(t_stack *a, t_stack *b)
 {
-	ft_printf("A %p B %p", a, b);
 	get_targets(a, b);
 	calc_price(a, 'a');
 	calc_price(b, 'b');
 	calc_cheapest(b);
+	ft_printf("\nNode refresh done ! Output :\n");
+	print_stacks(a, b);
+	while (b)
+	{
+		if (b->targ)
+			ft_printf("Node : %d; Target : %d; Top price : %d; Price : %d;\n", b->val, b->targ->val, b->top_price, b->push_price);
+		b = b->next;
+	}
 }

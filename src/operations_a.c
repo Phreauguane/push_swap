@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:59:17 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 03:03:28 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/31 20:29:42 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	sa(t_stack **a, bool print)
 	top2->prev = top;
 	if (*a == top2)
 		*a = top;
-	node_refresh(*a, NULL);
 }
 
 void	pa(t_stack **a, t_stack **b, bool print)
@@ -39,7 +38,7 @@ void	pa(t_stack **a, t_stack **b, bool print)
 	if (print)
 		ft_putendl_fd("pa", 1);
 	push_node(a, pop(b));
-	node_refresh(*a, *b);
+	//node_refresh(*a, *b);
 }
 
 void	ra(t_stack **a, bool print)
@@ -59,7 +58,6 @@ void	ra(t_stack **a, bool print)
 	last->next = *a;
 	(*a)->prev = last;
 	*a = last;
-	node_refresh(*a, NULL);
 }
 
 void	rra(t_stack **a, bool print)
@@ -80,5 +78,4 @@ void	rra(t_stack **a, bool print)
 	(*a)->prev = NULL;
 	first->next = NULL;
 	push_node(a, first);
-	node_refresh(*a, NULL);
 }
