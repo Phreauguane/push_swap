@@ -6,19 +6,21 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:29:51 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 20:33:12 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/01 02:31:04 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include  <push_swap.h>
 
-t_stack	*create_node(int value)
+t_stack	*create_node(long int value)
 {
 	t_stack	*out;
 
 	out = malloc(sizeof(t_stack));
+	if (out == NULL || value > INT_MAX || value < INT_MIN)
+		exit_handler("Alloc error and/or value larger than an integer");
 	ft_bzero(out, sizeof(t_stack));
-	out->val = value;
+	out->val = (int)value;
 	out->next = NULL;
 	out->prev = NULL;
 	return (out);

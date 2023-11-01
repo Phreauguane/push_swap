@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 02:42:29 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 20:41:57 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/01 18:57:08 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rotate_two(t_stack **a, t_stack **b)
 {
 	while (get_top(*a) != (*b)->fst_to_push->targ
 		&& get_top(*b) != (*b)->fst_to_push)
-		rr(a, b, false);
+		rr(a, b, true);
 	node_refresh(*a, *b);
 }
 
@@ -29,7 +29,7 @@ void	rev_rotate_two(t_stack **a, t_stack **b)
 	}
 	while (get_top(*a) != (*b)->fst_to_push->targ
 		&& get_top(*b) != (*b)->fst_to_push)
-		rrr(a, b, false);
+		rrr(a, b, true);
 	node_refresh(*a, *b);
 }
 
@@ -69,20 +69,22 @@ void	push_swap(t_stack **a, t_stack **b)
 	int	len;
 
 	len = get_stack_len(*a);
+	if (is_sorted(*a))
+		return ;
 	while (len-- > 3)
-	{
 		pb(b, a, true);
-		print_stacks(*a, *b);
-	}
 	sort_shmol(a);
-	print_stacks(*a, *b);
 	while (*b)
 	{
 		node_refresh(*a, *b);
 		push_fst_to_move(a, b);
-		print_stacks(*a, *b);
 	}
 	if (is_sorted(*a))
 		return ;
-	final_rot(a, get_smallest(*a), true);
+	t_stack *e = get_smallest(*a);
+	ft_printf("%d : %d > %d\n", e->to_rev, e->pos, e->rev_pos);
+	final_rot(a, rev(get_smallest(*a)), true);
+	e = get_smallest(*a);
+	ft_printf("%d : %d > %d\n", e->to_rev, e->pos, e->rev_pos);
+
 }

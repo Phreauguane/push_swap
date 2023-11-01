@@ -6,17 +6,17 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:01:05 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 00:43:11 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/01 02:32:57 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int	ft_atoi2(char *str)
+static long int	ft_atoi2(char *str)
 {
-	int		i;
-	int		signe;
-	int		nbr;
+	int			i;
+	long int	signe;
+	long int	nbr;
 
 	i = 0;
 	signe = 1;
@@ -38,6 +38,23 @@ static int	ft_atoi2(char *str)
 	return (nbr * signe);
 }
 
+void	check_dup(t_stack *s)
+{
+	t_stack	*a;
+	
+	while (s)
+	{
+		a = s->next;
+		while (a)
+		{
+			if (s->val == a->val)
+				exit_handler("Values must be unique");
+			a = a->next;
+		}
+		s = s->next;
+	}
+}
+
 t_stack	*init_stack(int ac, char **av)
 {
 	t_stack	*stack;
@@ -47,17 +64,21 @@ t_stack	*init_stack(int ac, char **av)
 	stack = NULL;
 	i = 0;
 	if (ac < 2 || av[1][0] == '\0')
-		exit_handler("Wrong arguments");
+		exit_handler("Not enough arguments");
 	else if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else
 		args = av + 1;
+	if (args == NULL)
+		exit_handler("Alloc error");
 	while (args && args[i] != NULL)
 	{
 		push_node(&stack, create_node(ft_atoi2(args[i])));
+		ra(&stack, false);
 		i++;
 	}
 	if (ac == 2 && args)
 		ft_free_split(args);
+	check_dup(stack);
 	return (stack);
 }

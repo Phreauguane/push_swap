@@ -19,7 +19,7 @@ SRCS		= 	src/exit_handler.c		\
 				src/stack_utils2.c		\
 				src/stack_utils3.c
 
-ALGORITHMS	=	src/sort_shmol.c src/algorithm.c
+ALGORITHMS	=	src/sort_shmol.c src/algorithm.c src/calc_prices.c
 
 RM			= rm -rf
 

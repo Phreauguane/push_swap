@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:36:40 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 02:48:08 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/01 18:52:34 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_stack
 {
 	int				val;
 	int				pos;
-	int				top_price;
+	int				rev_pos;
 	int				push_price;
 	bool			to_rev;
 	struct s_stack	*fst_to_push;
@@ -69,7 +69,7 @@ int		min(int i, int j);
 
 /*  Stack related functions  */
 t_stack	*init_stack(int ac, char **av);
-t_stack	*create_node(int value);
+t_stack	*create_node(long int value);
 void	push_node(t_stack **a, t_stack *node);
 void	print_stacks(t_stack *a, t_stack *b);
 t_stack	*get_biggest(t_stack *stack);
@@ -104,6 +104,8 @@ void	rrr(t_stack **a, t_stack **b, bool print);
 
 /*  Sorting Algorithms  */
 void	sort_shmol(t_stack **a);
+void	calc_prices(t_stack *a, t_stack *b);
 void	push_swap(t_stack **a, t_stack **b);
+t_stack	*rev(t_stack *e);
 
 #endif

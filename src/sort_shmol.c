@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:48:04 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 02:47:27 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/01 02:36:05 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	sort_shmol(t_stack **a)
 		return sa(a, true);
 	if (len != 3)
 		return ;
-	if (get_top(*a) == get_biggest(*a))
+	//ft_printf("top : %d; biggest : %d", get_top(*a)->val, get_biggest(*a)->val);
+	if (get_top(*a)->val == get_biggest(*a)->val)
 		ra(a, true);
-	else if ((*a)->next == get_biggest(*a))
+	else if ((*a)->next->val == get_biggest(*a)->val)
 		rra(a, true);
 	if (!is_sorted(*a))
 		sa(a, true);

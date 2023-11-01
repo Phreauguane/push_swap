@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:24:54 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 20:29:46 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/31 22:56:59 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	pb(t_stack **b, t_stack **a, bool print)
 	if (print)
 		ft_putendl_fd("pb", 1);
 	push_node(b, pop(a));
-	//node_refresh(*a, *b);
 }
 
 void	rb(t_stack **b, bool print)
