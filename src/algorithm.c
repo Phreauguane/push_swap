@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 02:42:29 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/11/01 18:57:08 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/06 15:41:08 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,6 @@ void	push_swap(t_stack **a, t_stack **b)
 	}
 	if (is_sorted(*a))
 		return ;
-	t_stack *e = get_smallest(*a);
-	ft_printf("%d : %d > %d\n", e->to_rev, e->pos, e->rev_pos);
+	calc_prices(*a, *b);
 	final_rot(a, rev(get_smallest(*a)), true);
-	e = get_smallest(*a);
-	ft_printf("%d : %d > %d\n", e->to_rev, e->pos, e->rev_pos);
-
 }

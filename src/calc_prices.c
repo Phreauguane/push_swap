@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc_prices.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:19:13 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/11/01 18:59:24 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/06 16:09:42 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_stack	*rev(t_stack *e)
 {
-	e->to_rev = false;
+	e->to_rev = true;
 	if (e->rev_pos > e->pos)
-		e->to_rev = true;
+		e->to_rev = false;
 	return (e);
 }
 
@@ -51,14 +51,15 @@ void	calc_prices(t_stack *a, t_stack *b)
 	int	i;
 
 	sva = a;
-	svb = b;
 	i = get_stack_len(a);
 	while (--i >= 0)
 	{
 		sva->pos = i;
 		sva->rev_pos = get_stack_len(a) - i;
+		sva = rev(sva);
 		sva = sva->next;
 	}
+	svb = b;
 	i = get_stack_len(b);
 	while (--i >= 0)
 	{

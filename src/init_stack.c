@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:01:05 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/11/01 02:32:57 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/11/06 15:29:36 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_stack	*init_stack(int ac, char **av)
 	int		i;
 	
 	stack = NULL;
+	args = NULL;
 	i = 0;
 	if (ac < 2 || av[1][0] == '\0')
 		exit_handler("Not enough arguments");
