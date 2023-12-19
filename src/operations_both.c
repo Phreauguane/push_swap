@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   operations_both.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:46:17 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 22:57:04 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:23:04 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ss(t_stack **a, t_stack **b, bool print)
+void	ss(t_stack **a, t_stack **b, t_bool print)
 {
-	sa(a, false);
-	sb(b, false);
+	sa(a, FALSE);
+	sb(b, FALSE);
 	if (print)
 		ft_putendl_fd("ss", 1);
 }
 
-void	rr(t_stack **a, t_stack **b, bool print)
+void	rr(t_stack **a, t_stack **b, t_bool print)
 {
-	ra(a, false);
-	rb(b, false);
+	ra(a, FALSE);
+	rb(b, FALSE);
 	if (print)
 		ft_putendl_fd("rr", 1);
 }
 
-void	rrr(t_stack **a, t_stack **b, bool print)
+void	rrr(t_stack **a, t_stack **b, t_bool print)
 {
-	rra(a, false);
-	rrb(b, false);
+	rra(a, FALSE);
+	rrb(b, FALSE);
 	if (print)
 		ft_putendl_fd("rrr", 1);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:29:51 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/11/01 02:31:04 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:14:07 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  <push_swap.h>
+#include <push_swap.h>
 
 t_stack	*create_node(long int value)
 {
@@ -76,7 +76,7 @@ void	print_stacks(t_stack *a, t_stack *b)
 t_stack	*get_biggest(t_stack *stack)
 {
 	t_stack	*biggest;
-	
+
 	biggest = stack;
 	while (stack != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 02:42:29 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/11/06 15:41:08 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:22:36 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rotate_two(t_stack **a, t_stack **b)
 {
 	while (get_top(*a) != (*b)->fst_to_push->targ
 		&& get_top(*b) != (*b)->fst_to_push)
-		rr(a, b, true);
+		rr(a, b, TRUE);
 	node_refresh(*a, *b);
 }
 
@@ -29,22 +29,22 @@ void	rev_rotate_two(t_stack **a, t_stack **b)
 	}
 	while (get_top(*a) != (*b)->fst_to_push->targ
 		&& get_top(*b) != (*b)->fst_to_push)
-		rrr(a, b, true);
+		rrr(a, b, TRUE);
 	node_refresh(*a, *b);
 }
 
-void	final_rot(t_stack **stack, t_stack *cheap, bool is_stack_a)
+void	final_rot(t_stack **stack, t_stack *cheap, t_bool is_stack_a)
 {
 	while (get_top(*stack) != cheap)
 	{
 		if (is_stack_a && cheap->to_rev)
-			rra(stack, true);
+			rra(stack, TRUE);
 		else if (is_stack_a)
-			ra(stack, true);
+			ra(stack, TRUE);
 		else if (cheap->to_rev)
-			rrb(stack, true);
+			rrb(stack, TRUE);
 		else
-			rb(stack, true);
+			rb(stack, TRUE);
 	}
 }
 
@@ -59,9 +59,9 @@ void	push_fst_to_move(t_stack **a, t_stack **b)
 		rev_rotate_two(a, b);
 	else if (!(fst->to_rev) && !(fst->targ->to_rev))
 		rotate_two(a, b);
-	final_rot(b, fst, false);
-	final_rot(a, fst->targ, true);
-	pa(a, b, true);
+	final_rot(b, fst, FALSE);
+	final_rot(a, fst->targ, TRUE);
+	pa(a, b, TRUE);
 }
 
 void	push_swap(t_stack **a, t_stack **b)
@@ -72,7 +72,7 @@ void	push_swap(t_stack **a, t_stack **b)
 	if (is_sorted(*a))
 		return ;
 	while (len-- > 3)
-		pb(b, a, true);
+		pb(b, a, TRUE);
 	sort_shmol(a);
 	while (*b)
 	{
@@ -82,5 +82,5 @@ void	push_swap(t_stack **a, t_stack **b)
 	if (is_sorted(*a))
 		return ;
 	calc_prices(*a, *b);
-	final_rot(a, rev(get_smallest(*a)), true);
+	final_rot(a, rev(get_smallest(*a)), TRUE);
 }

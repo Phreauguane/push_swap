@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   operations_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:59:17 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 22:56:52 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:22:57 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	sa(t_stack **a, bool print)
+void	sa(t_stack **a, t_bool print)
 {
 	t_stack	*top;
 	t_stack	*top2;
-	
+
 	if (print)
 		ft_putendl_fd("sa", 1);
 	top = get_top(*a);
@@ -33,17 +33,17 @@ void	sa(t_stack **a, bool print)
 		*a = top;
 }
 
-void	pa(t_stack **a, t_stack **b, bool print)
+void	pa(t_stack **a, t_stack **b, t_bool print)
 {
 	if (print)
 		ft_putendl_fd("pa", 1);
 	push_node(a, pop(b));
 }
 
-void	ra(t_stack **a, bool print)
+void	ra(t_stack **a, t_bool print)
 {
 	t_stack	*last;
-	
+
 	if (print)
 		ft_putendl_fd("ra", 1);
 	if (a == NULL || *a == NULL || (*a)->next == NULL)
@@ -59,7 +59,7 @@ void	ra(t_stack **a, bool print)
 	*a = last;
 }
 
-void	rra(t_stack **a, bool print)
+void	rra(t_stack **a, t_bool print)
 {
 	t_stack	*first;
 
@@ -69,7 +69,7 @@ void	rra(t_stack **a, bool print)
 		return ;
 	if ((*a)->next->next == NULL)
 	{
-		sa(a, false);
+		sa(a, FALSE);
 		return ;
 	}
 	first = *a;

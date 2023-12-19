@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:56:18 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/30 22:28:51 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:16:21 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack	*get_smallest(t_stack *a)
 {
 	t_stack	*smallest;
-	
+
 	smallest = a;
 	while (a != NULL)
 	{

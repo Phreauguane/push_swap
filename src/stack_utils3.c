@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 22:37:54 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/31 03:29:14 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:23:17 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-bool	is_sorted(t_stack *a)
+t_bool	is_sorted(t_stack *a)
 {
 	while (a && a->next)
 	{
 		if (a->val < a->next->val)
-			return (false);
+			return (FALSE);
 		a = a->next;
 	}
-	return (true);
+	return (TRUE);
 }
 
 void	free_stack(t_stack **s)
 {
 	t_stack	*tmp;
-	
+
 	while (*s)
 	{
 		tmp = pop(s);
@@ -35,12 +35,12 @@ void	free_stack(t_stack **s)
 	}
 }
 
-bool	is_biggest(t_stack *e, t_stack *a)
+t_bool	is_biggest(t_stack *e, t_stack *a)
 {
 	return (e == get_biggest(a));
 }
 
-bool	is_smallest(t_stack *e, t_stack *a)
+t_bool	is_smallest(t_stack *e, t_stack *a)
 {
 	return (e == get_smallest(a));
 }

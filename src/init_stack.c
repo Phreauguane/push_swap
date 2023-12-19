@@ -6,7 +6,7 @@
 /*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:01:05 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/11/06 15:29:36 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:20:50 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static long int	ft_atoi2(char *str)
 void	check_dup(t_stack *s)
 {
 	t_stack	*a;
-	
+
 	while (s)
 	{
 		a = s->next;
@@ -60,7 +60,7 @@ t_stack	*init_stack(int ac, char **av)
 	t_stack	*stack;
 	char	**args;
 	int		i;
-	
+
 	stack = NULL;
 	args = NULL;
 	i = 0;
@@ -75,7 +75,7 @@ t_stack	*init_stack(int ac, char **av)
 	while (args && args[i] != NULL)
 	{
 		push_node(&stack, create_node(ft_atoi2(args[i])));
-		ra(&stack, false);
+		ra(&stack, FALSE);
 		i++;
 	}
 	if (ac == 2 && args)
