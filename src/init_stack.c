@@ -6,13 +6,19 @@
 /*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:01:05 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/12/19 16:20:50 by jde-meo          ###   ########.fr       */
+/*   Updated: 2024/01/08 15:06:05 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static long int	ft_atoi2(char *str)
+static void	exit_fill(char **tab, char *msg)
+{
+	ft_free_split(tab);
+	exit_handler(msg);
+}
+
+static long int	ft_atoi2(char *str, char **tab)
 {
 	int			i;
 	long int	signe;
@@ -30,11 +36,11 @@ static long int	ft_atoi2(char *str)
 		i++;
 	}
 	if (!ft_isdigit(str[i]))
-		exit_handler("Wrong arguments");
+		exit_fill(tab, "Wrong arguments");
 	while (str[i] >= '0' && str[i] <= '9')
 		nbr = (nbr * 10) + (str[i++] - '0');
 	if (str[i] != '\0')
-		exit_handler("Wrong arguments");
+		exit_fill(tab, "Wrong arguments");
 	return (nbr * signe);
 }
 
@@ -74,7 +80,7 @@ t_stack	*init_stack(int ac, char **av)
 		exit_handler("Alloc error");
 	while (args && args[i] != NULL)
 	{
-		push_node(&stack, create_node(ft_atoi2(args[i])));
+		push_node(&stack, create_node(ft_atoi2(args[i], args)));
 		ra(&stack, FALSE);
 		i++;
 	}
